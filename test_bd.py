@@ -6,6 +6,7 @@ print( dataBase.buscarTabela("user") )
 print( dataBase.buscarTabela("ativos") )
 print( dataBase.buscarTabela("privilegios") )
 print(dataBase.buscarTabela("tipos_ativos"))
-campos=["nome,tipo,local,posicao,data"]
-dataBase.gravar("ativo",campos,["coelho",1,"pais das maravilhas","ok","12/09/1945"])
+campos=["idtipo_ativos,nome"]
+valores=["","Ebook"]
+dataBase.gravar("tipos_ativos","idtipo_ativos,nome","","Ebook")
 print( dataBase.buscarTabela("ativos") )
