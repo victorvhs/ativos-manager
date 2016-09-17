@@ -26,19 +26,28 @@ def cadUsuario():
 
 def cadAtivos():
     nome = input("Nome do Ativo: ")
+    print()
     tipo = 0
     while not tipo:
+        tipos = db.buscarTabela("tipos_ativos")
+        for tp in tipos:
+            print("{}\t{}".format(str(tp[0]), tp[1].capitalize()))
         tipo = input("Insira o Tipo do ativo: ")
+        print()
         try:
             tipo = int(tipo)
         except:
             print("Opção errada")
     local = input('Local do Ativo: ')
+    print()
     posi = input('Insira o estado de conservação do ativo: ')
+    posi = posi.upper()
+    print()
     d = input('Insira a data de entrada do ativo: ')
+    print()
     campos = "'{}','{}','{}','{}','{}'".format(nome, str(tipo), local, posi, d)
     db.gravar_ativo(campos)
-    db.buscar('ativos')
+    print("Gravado")
 
 
 def cadTipo():

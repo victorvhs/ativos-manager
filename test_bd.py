@@ -1,5 +1,3 @@
-#from bd.py import buscar
-
-import cadastro as cd
-
-cd.cadTipo()
+import dataBase as db
+tipos = db.buscarTabela("tipos_ativos")
+print(tipos)
