@@ -20,6 +20,9 @@ def buscar():
             if op < 1 or op > 3:
                 raise Exception()
             break
+        except KeyboardInterrupt:
+            print("Bye Bye")
+            break
         except:
             print("PROBLEMAS NO PARAISO")
             print("Tente novamente")
@@ -28,8 +31,14 @@ def buscar():
         while True:
             try:
                 ativo = int(input("Insira o ID do ativo: "))
+                break
+            except KeyboardInterrupt:
+                print("Bye Bye")
+                break
             except:
                 print("PROBLEMAS NO PARAISO\nIsso não parece um numero")
+        ativo = db.buscar(ativo)
+        print(ativo)
     elif op == 2:
         print("Não Definido")
     elif op == 3:
@@ -43,10 +52,14 @@ def menu():
         print("1\tPara Cadastrar Ativos")
         print("2\tPara Buscar Ativos")
         print("3\tPara Adminstrador")
+        op = 0
         while True:
             try:
                 op = input("> ")
                 op = int(op)
+                break
+            except KeyboardInterrupt:
+                print("Bye Bye")
                 break
             except:
                 print("PROBLEMAS NO PARAISO")
